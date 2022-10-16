@@ -57,4 +57,27 @@ export class AWSClient {
     }
     return res;
   }
+  public async readEntry(id) {
+    /*Params:
+    id = uuid string
+    */console.log("bob")
+    return await this.tableModel.scan().exec((error, results) => {
+      if (error) {
+          console.error(error);
+      } else {
+          for(let i = 0; i < results.length;i++){
+            if(results[i].ID == id){
+              console.log(results[i])
+              break;
+            } else {
+              console.log("ID not Found");
+            }
+          }
+      }
+  });
+  }
+
+
+
+
 }
