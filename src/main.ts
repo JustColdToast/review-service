@@ -6,7 +6,7 @@ async function bootstrap() {
   // Set up dynamoose region
   const dynamoose = require('dynamoose');
   dynamoose.aws.ddb.set(new dynamoose.aws.ddb.DynamoDB({'region': 'us-east-1'}));
-  
-  await app.listen(3000);
+  const port = process.env.PORT || 3000
+  await app.listen(port);
 }
 bootstrap();

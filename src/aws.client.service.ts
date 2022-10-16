@@ -80,6 +80,7 @@ export class AWSClient {
   }
 
   // public async updateGenderNeutral(id){
-  //   return await this.tableModel.update({"id":id},{"WHAT":"GENDERNEUTRAL:"});
+  //   const userModel = this.getEntry(id);
+  //   userModel
   // }
 }
