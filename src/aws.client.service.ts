@@ -63,7 +63,23 @@ export class AWSClient {
     return await this.tableModel.query("id").eq(id).exec();
   }
 
+  public async incDownVotes(id){
+    return await this.tableModel.update({"id":id},{"$ADD":{"DOWNVOTES":1}});
+  }
 
+  public async decDownVotes(id){
+    return await this.tableModel.update({"id":id},{"$ADD":{"DOWNVOTES":-1}});
+  }
 
+  public async incUpVotes(id){
+    return await this.tableModel.update({"id":id},{"$ADD":{"UPVOTES":1}});
+  }
 
+  public async decUpVotes(id){
+    return await this.tableModel.update({"id":id},{"$ADD":{"UPVOTES":-1}});
+  }
+
+  // public async updateGenderNeutral(id){
+  //   return await this.tableModel.update({"id":id},{"WHAT":"GENDERNEUTRAL:"});
+  // }
 }
