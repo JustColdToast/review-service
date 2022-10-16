@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 import { AWSClient } from './aws.client.service';
 
@@ -17,5 +17,10 @@ export class AppController {
   @Get("/csv-setup")
   async csvSetup() {
     return await this.awsClient.setupData();
+  }
+
+  @Get("/washroom/:id")
+  async getWashroom(@Param('id') id: string) {
+    return await this.awsClient.getEntry(id);
   }
 }
