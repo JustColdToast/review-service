@@ -9,6 +9,6 @@ export class AppService {
   constructor(private readonly awsClient: AWSClient) {}
 
   public async getHello() {
-    return await this.awsClient.action();
+    return await this.awsClient.getExample();
   }
 }
